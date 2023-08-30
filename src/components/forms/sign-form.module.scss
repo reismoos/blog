@@ -1,0 +1,110 @@
+.sign-form{
+    border-radius: 6px;
+    border: 1px solid #D9D9D9;
+    background: #FFF;
+    box-shadow: 0px 0.6087964177131653px 2.9332919120788574px 0px rgba(0, 0, 0, 0.02), 0px 1.4630224704742432px 7.049108028411865px 0px rgba(0, 0, 0, 0.03), 0px 2.7547414302825928px 13.272845268249512px 0px rgba(0, 0, 0, 0.04), 0px 4.91398811340332px 23.67648696899414px 0px rgba(0, 0, 0, 0.04), 0px 9.19107437133789px 44.28426742553711px 0px rgba(0, 0, 0, 0.05), 0px 22px 106px 0px rgba(0, 0, 0, 0.07);
+    width: 384px;
+    padding: 48px 32px;
+    margin: 60px auto;
+
+    &__title {
+        color: #262626;
+        text-align: center;
+        font-family: Roboto;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px;
+    }
+
+    label {
+        color: #262626;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px;
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    input {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        border: 1px solid  #D9D9D9;
+        background: #FFF;
+        padding: 8px 12px;
+        height: 40px;
+        width: 100%;
+    }
+
+    input[type = checkbox] {
+        height: auto;
+        width: auto;
+        margin-right: 10px;
+        position: absolute;
+        left: -25px;
+        top: 0;
+    }
+
+    &__error-message {
+        color: #F5222D;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 22px; 
+        margin: 0;
+    }
+
+    &__line {
+        background-color: #E8E8E8;
+        height: 1px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    &__checkbox {
+        width: 254px;
+        position: relative;
+        left: 25px;
+    }
+
+    &__btn {
+        width: 100%;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        background: #1890FF;
+        color:  #FFF;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    &__btn:hover {
+        cursor: pointer;
+        box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    &__after-form-text {
+        color:  #8C8C8C;
+        text-align: center;
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        
+        a {
+            color: #1890FF;
+            text-decoration: none;
+        }
+    }
+}
