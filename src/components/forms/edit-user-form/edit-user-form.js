@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useMemo } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import classes from '../sign-form.module.scss'
+import classes from '../form.module.scss'
 import { editUser } from '../login-form/login-slice'
 
 const EditUserForm = () => {
@@ -51,8 +51,8 @@ const EditUserForm = () => {
   }
 
   return (
-    <div className={classes['sign-form']}>
-      <h2 className={classes['sign-form__title']}>Edit Profile</h2>
+    <div className={classes['form']}>
+      <h2 className={classes['form__title']}>Edit Profile</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Username
@@ -70,7 +70,7 @@ const EditUserForm = () => {
               },
             })}
           />
-          {errors?.username && <div className={classes['sign-form__error-message']}>{errors.username.message}</div>}
+          {errors?.username && <div className={classes['form__error-message']}>{errors.username.message}</div>}
         </label>
         <label>
           Email address
@@ -84,7 +84,7 @@ const EditUserForm = () => {
               },
             })}
           />
-          {errors?.email && <div className={classes['sign-form__error-message']}>{errors.email.message}</div>}
+          {errors?.email && <div className={classes['form__error-message']}>{errors.email.message}</div>}
         </label>
         <label>
           New password
@@ -102,7 +102,7 @@ const EditUserForm = () => {
               },
             })}
           />
-          {errors?.password && <div className={classes['sign-form__error-message']}>{errors.password.message}</div>}
+          {errors?.password && <div className={classes['form__error-message']}>{errors.password.message}</div>}
         </label>
         <label>
           Avatar image (url)
@@ -116,10 +116,10 @@ const EditUserForm = () => {
               },
             })}
           />
-          {errors?.url && <div className={classes['sign-form__error-message']}>{errors.url.message}</div>}
+          {errors?.url && <div className={classes['form__error-message']}>{errors.url.message}</div>}
         </label>
-        {error ? <div className={classes['sign-form__error-message']}>{errorMessage}</div> : null}
-        <button className={classes['sign-form__btn']}>Save</button>
+        {error ? <div className={classes['form__error-message']}>{errorMessage}</div> : null}
+        <button className={classes['form__btn']}>Save</button>
       </form>
     </div>
   )

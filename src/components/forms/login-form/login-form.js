@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { Link, Redirect } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import classes from '../sign-form.module.scss'
+import classes from '../form.module.scss'
 
 import { fetchForLogin } from './login-slice'
 
@@ -36,8 +36,8 @@ const SignInForm = () => {
     )
   }
   return (
-    <div className={classes['sign-form']}>
-      <h2 className={classes['sign-form__title']}>Sign In</h2>
+    <div className={classes['form']}>
+      <h2 className={classes['form__title']}>Sign In</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Email address
@@ -52,7 +52,7 @@ const SignInForm = () => {
               },
             })}
           />
-          {errors?.email && <div className={classes['sign-form__error-message']}>{errors.email.message}</div>}
+          {errors?.email && <div className={classes['form__error-message']}>{errors.email.message}</div>}
         </label>
         <label>
           Password
@@ -71,12 +71,12 @@ const SignInForm = () => {
               },
             })}
           />
-          {errors?.password && <div className={classes['sign-form__error-message']}>{errors.password.message}</div>}
+          {errors?.password && <div className={classes['form__error-message']}>{errors.password.message}</div>}
         </label>
-        {error ? <div className={classes['sign-form__error-message']}>{errorMessage}</div> : null}
-        <button className={classes['sign-form__btn']}>Login</button>
+        {error ? <div className={classes['form__error-message']}>{errorMessage}</div> : null}
+        <button className={classes['form__btn']}>Login</button>
       </form>
-      <p className={classes['sign-form__after-form-text']}>
+      <p className={classes['form__after-form-text']}>
         Don’t have an account?<Link to="/sign-up"> Sign Up.</Link>
       </p>
     </div>

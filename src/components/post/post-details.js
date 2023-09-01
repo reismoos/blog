@@ -1,8 +1,11 @@
 import format from 'date-fns/format'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
+import { useDispatch, useSelector } from 'react-redux'
+import { Popconfirm } from 'antd'
 
 import classes from './post.module.scss'
+import { deletePost, setStartEditing } from './post-slice'
 
 const PostHeader = ({ data, fullPost }) => {
   const { tagList, title, favoritesCount, author, updatedAt, slug, description } = data
@@ -25,6 +28,7 @@ const PostHeader = ({ data, fullPost }) => {
           <div className={classes['post-header__author-name']}>{author.username}</div>
           <div className={classes['post-header__post-date']}>{date}</div>
           <img src={author.image} alt="logo" className={classes['post-header__author-logo']} />
+          {fullPost && <EditDeleteBtns slug={slug} author={data.author} />}
         </div>
       </div>
       <p className={classes['post__text']}>{description}</p>
@@ -39,6 +43,40 @@ const Tag = ({ tag }) => {
 const PostBody = ({ data }) => {
   const { body } = data
   return <ReactMarkdown className={classes['full-post__body']}>{body}</ReactMarkdown>
+}
+
+const EditDeleteBtns = ({ author, slug }) => {
+  const loginedUsername = useSelector((state) => state.user.username)
+  const token = useSelector((state) => state.user.token)
+  const history = useHistory()
+  const dispatch = useDispatch()
+
+  const onEdit = () => {
+    dispatch(setStartEditing())
+    history.push(`/articles/${slug}/edit`)
+  }
+
+  const onDelete = () => {
+    dispatch(deletePost([token, slug]))
+    history.push('/')
+  }
+
+  return author.username === loginedUsername ? (
+    <div>
+      <Popconfirm
+        title="Delete the task"
+        description="Are you sure to delete this task?"
+        onConfirm={onDelete}
+        okText="Yes"
+        cancelText="No"
+      >
+        <button className={classes['delete-btn']}>Delete</button>
+      </Popconfirm>
+      <button onClick={onEdit} className={classes['edit-btn']}>
+        Edit
+      </button>
+    </div>
+  ) : null
 }
 
 export { PostHeader, PostBody }

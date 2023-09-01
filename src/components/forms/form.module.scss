@@ -1,4 +1,4 @@
-.sign-form{
+.form{
     border-radius: 6px;
     border: 1px solid #D9D9D9;
     background: #FFF;
@@ -28,7 +28,7 @@
         display: block;
     }
 
-    input {
+    input, textarea {
         font-family: Roboto;
         font-style: normal;
         font-weight: 400;
@@ -41,6 +41,10 @@
         padding: 8px 12px;
         height: 40px;
         width: 100%;
+    }
+
+    textarea {
+        height: auto;
     }
 
     input[type = checkbox] {
@@ -88,7 +92,7 @@
         line-height: 24px;
     }
 
-    &__btn:hover {
+    button:hover {
         cursor: pointer;
         box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.3);
     }
@@ -106,5 +110,60 @@
             color: #1890FF;
             text-decoration: none;
         }
+    }
+
+    &__tag  {
+        input {
+            width: 300px;
+        }
+    }
+
+    &__tag-delete {
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #F5222D;  
+        color: #F5222D;
+        text-align: center;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 8px 16px;
+        width: 118px;
+        margin-left: 18px;
+    }
+
+    &__tag-add {
+        background-color: #fff;
+        border-radius: 4px;
+        border: 1px solid #1890FF;  
+        color: #1890FF;
+        text-align: center;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        padding: 8px 16px;
+        width: 136px;
+        margin-left: 18px;
+    }
+}
+
+.post {
+    width: 932px;
+
+    &__btn {
+        width: 320px;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        background: #1890FF;
+        color:  #FFF;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
     }
 }

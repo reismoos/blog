@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { logOut } from '../forms/login-form/login-slice'
+import { setStopEditing } from '../post/post-slice'
 
 import classes from './header.module.scss'
 
@@ -39,9 +40,14 @@ const LoginedHeaderBtns = () => {
   const onLogOut = () => {
     dispatch(logOut())
   }
+
   return (
     <div className={classes['header__logined']}>
-      <Link to="/new-article" className={classes['header__btn-create-article']}>
+      <Link
+        onClick={() => dispatch(setStopEditing())}
+        to="/new-article"
+        className={classes['header__btn-create-article']}
+      >
         Create article
       </Link>
       <Link to="/profile" className={classes['header__user-info']}>

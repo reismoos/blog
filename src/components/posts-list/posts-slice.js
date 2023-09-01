@@ -42,4 +42,4 @@ const postsSlice = createSlice({
 const { actions, reducer } = postsSlice
 
 export default reducer
-export const { changePage, setMaxPage } = actions
+export const { changePage } = actions

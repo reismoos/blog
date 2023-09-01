@@ -11,6 +11,7 @@ import SignInForm from '../forms/login-form/login-form'
 import RegistrationForm from '../forms/reigistration-form/registration-form'
 import EditUserForm from '../forms/edit-user-form/edit-user-form'
 import { logiByToken } from '../forms/login-form/login-slice'
+import CreatePostForm from '../forms/create-post-form/create-post-form'
 
 function App() {
   const dispatch = useDispatch()
@@ -24,7 +25,7 @@ function App() {
           <PostsList />
           <MyPagination />
         </Route>
-        <Route path="/articles/:slug">
+        <Route exact path="/articles/:slug">
           <FullPost />
         </Route>
         <Route path="/sign-in">
@@ -35,6 +36,12 @@ function App() {
         </Route>
         <Route path="/profile">
           <EditUserForm />
+        </Route>
+        <Route path="/new-article">
+          <CreatePostForm />
+        </Route>
+        <Route path="/articles/:slug/edit">
+          <CreatePostForm />
         </Route>
         <Route path="*">
           <Alert message="Error" description="Something gone wrong! Try again later!" type="error" showIcon />

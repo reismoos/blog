@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import classes from '../sign-form.module.scss'
+import classes from '../form.module.scss'
 import { registration } from '../login-form/login-slice'
 
 const RegistrationForm = () => {
@@ -13,7 +13,7 @@ const RegistrationForm = () => {
 
   if (error) {
     renderErrorMessage = errorMessage.map((err, i) => (
-      <div key={i} className={classes['sign-form__error-message']}>
+      <div key={i} className={classes['form__error-message']}>
         {err}
       </div>
     ))
@@ -34,8 +34,8 @@ const RegistrationForm = () => {
     reset()
   }
   return (
-    <div className={classes['sign-form']}>
-      <h2 className={classes['sign-form__title']}>Create new account</h2>
+    <div className={classes['form']}>
+      <h2 className={classes['form__title']}>Create new account</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
           Username
@@ -54,7 +54,7 @@ const RegistrationForm = () => {
               },
             })}
           />
-          {errors?.username && <div className={classes['sign-form__error-message']}>{errors.username.message}</div>}
+          {errors?.username && <div className={classes['form__error-message']}>{errors.username.message}</div>}
         </label>
         <label>
           Email address
@@ -69,7 +69,7 @@ const RegistrationForm = () => {
               },
             })}
           />
-          {errors?.email && <div className={classes['sign-form__error-message']}>{errors.email.message}</div>}
+          {errors?.email && <div className={classes['form__error-message']}>{errors.email.message}</div>}
         </label>
         <label>
           Password
@@ -88,7 +88,7 @@ const RegistrationForm = () => {
               },
             })}
           />
-          {errors?.password && <div className={classes['sign-form__error-message']}>{errors.password.message}</div>}
+          {errors?.password && <div className={classes['form__error-message']}>{errors.password.message}</div>}
         </label>
         <label>
           Repeat Password
@@ -105,11 +105,11 @@ const RegistrationForm = () => {
             })}
           />
           {errors?.repeatPassword && (
-            <div className={classes['sign-form__error-message']}>{errors.repeatPassword.message}</div>
+            <div className={classes['form__error-message']}>{errors.repeatPassword.message}</div>
           )}
         </label>
-        <div className={classes['sign-form__line']}></div>
-        <label className={classes['sign-form__checkbox']}>
+        <div className={classes['form__line']}></div>
+        <label className={classes['form__checkbox']}>
           I agree to the processing of my personal information
           <input
             type="checkbox"
@@ -117,14 +117,12 @@ const RegistrationForm = () => {
               required: 'You must agree with processing your personal infomation',
             })}
           ></input>
-          {errors?.information && (
-            <div className={classes['sign-form__error-message']}>{errors.information.message}</div>
-          )}
+          {errors?.information && <div className={classes['form__error-message']}>{errors.information.message}</div>}
         </label>
         {renderErrorMessage}
-        <button className={classes['sign-form__btn']}>Create</button>
+        <button className={classes['form__btn']}>Create</button>
       </form>
-      <p className={classes['sign-form__after-form-text']}>
+      <p className={classes['form__after-form-text']}>
         Already have an account? <Link to="/sign-in"> Sign In.</Link>
       </p>
     </div>

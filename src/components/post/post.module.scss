@@ -22,6 +22,7 @@
     margin: 20px auto;
 
     &__body {
+        word-wrap: break-word;
         max-width: 100%;
         img {
             max-width: 100%;
@@ -107,4 +108,33 @@
         right: 0;
         top: 0;
     }
+}
+
+.delete-btn {
+    display: inline-block;
+    line-height: 22px;
+    color: #F5222D;
+    border: 1px solid #F5222D;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 18px;
+    font-size: 14px;
+    margin-right: 12px;
+    margin-top: 30px;
+}
+
+.edit-btn {
+    display: inline-block;
+    line-height: 22px;
+    color: #52C41A;
+    border: 1px solid #52C41A;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 3px 18px;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+button:hover {
+    cursor: pointer;
 }
