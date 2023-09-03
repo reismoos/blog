@@ -1,5 +1,3 @@
-// import { useSelector } from 'react-redux'
-
 export const useHttp = () => {
   const token = sessionStorage.getItem('blogToken')
   const request = async (

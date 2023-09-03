@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 
 import posts from '../../components/posts-list/posts-slice'
 import post from '../../components/post/post-slice'
-import user from '../../components/forms/login-form/login-slice'
+import user from '../../components/forms/forms-slice'
 
 export const store = configureStore({
   reducer: {

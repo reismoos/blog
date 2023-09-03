@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom/cjs/react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import classes from '../form.module.scss'
-import { registration } from '../login-form/login-slice'
+import { registration } from '../forms-slice'
 
 const RegistrationForm = () => {
   const dispatch = useDispatch()

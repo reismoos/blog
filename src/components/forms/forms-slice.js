@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { message } from 'antd'
 
-import { useHttp } from '../../../service/hooks/http.hook'
+import { useHttp } from '../../service/hooks/http.hook'
 
 const initialState = {
   isLogined: false,

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { logOut } from '../forms/login-form/login-slice'
+import { logOut } from '../forms/forms-slice'
 import { setStopEditing } from '../post/post-slice'
 
 import classes from './header.module.scss'

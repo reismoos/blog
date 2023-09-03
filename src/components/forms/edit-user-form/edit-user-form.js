@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import classes from '../form.module.scss'
-import { editUser } from '../login-form/login-slice'
+import { editUser } from '../forms-slice'
 
 const EditUserForm = () => {
   const { isLogined, errorMessage, error, username, email, image } = useSelector((state) => state.user)

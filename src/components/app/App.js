@@ -10,7 +10,7 @@ import FullPost from '../post/full-post'
 import SignInForm from '../forms/login-form/login-form'
 import RegistrationForm from '../forms/reigistration-form/registration-form'
 import EditUserForm from '../forms/edit-user-form/edit-user-form'
-import { logiByToken } from '../forms/login-form/login-slice'
+import { logiByToken } from '../forms/forms-slice'
 import CreatePostForm from '../forms/create-post-form/create-post-form'
 
 function App() {

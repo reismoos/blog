@@ -3,8 +3,7 @@ import { Link, Redirect } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import classes from '../form.module.scss'
-
-import { fetchForLogin } from './login-slice'
+import { fetchForLogin } from '../forms-slice'
 
 const SignInForm = () => {
   const isLogined = useSelector((state) => state.user.isLogined)
