@@ -16,7 +16,7 @@ import CreatePostForm from '../forms/create-post-form/create-post-form'
 function App() {
   const dispatch = useDispatch()
   const token = sessionStorage.getItem('blogToken')
-  token ? dispatch(logiByToken(token)) : null
+  token ? dispatch(logiByToken()) : null
   return (
     <Router>
       <Header />

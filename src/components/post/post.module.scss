@@ -59,10 +59,19 @@
         align-self:flex-end;
     }
 
-    &__likes::before {
+    &__unliked::before {
         content: '';
         position: absolute;
         background-image: url('../../assets/icons/heart.svg');
+        width: 16px;
+        height: 16px;
+        left: -20px;
+    }
+
+    &__liked::before {
+        content: '';
+        position: absolute;
+        background-image: url('../../assets/icons/Heart_liked.svg');
         width: 16px;
         height: 16px;
         left: -20px;

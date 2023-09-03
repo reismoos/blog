@@ -9,7 +9,6 @@ import { createPost, editPost } from '../../post/post-slice'
 
 const CreatePostForm = () => {
   const [tagIds, setTagIds] = useState([0])
-  const token = useSelector((state) => state.user.token)
   const isLogined = useSelector((state) => state.user.isLogined)
   const editing = useSelector((state) => state.post.editing)
   const post = useSelector((state) => state.post.post)
@@ -67,9 +66,9 @@ const CreatePostForm = () => {
       },
     }
     if (editing) {
-      dispatch(editPost([article, token, slug]))
+      dispatch(editPost([article, slug]))
     } else {
-      dispatch(createPost([article, token]))
+      dispatch(createPost(article))
     }
 
     history.push('/')

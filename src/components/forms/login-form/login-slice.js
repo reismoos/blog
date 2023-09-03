@@ -32,22 +32,13 @@ export const registration = createAsyncThunk('register', async (data) => {
 
 export const editUser = createAsyncThunk('user/editUser', async (data) => {
   const { request } = useHttp()
-  const header = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${data[1]}`,
-  }
 
-  return await request('https://blog.kata.academy/api/user', 'PUT', JSON.stringify(data[0]), header)
+  return await request('https://blog.kata.academy/api/user', 'PUT', JSON.stringify(data))
 })
 
-export const logiByToken = createAsyncThunk('user/loginByToken', async (token) => {
+export const logiByToken = createAsyncThunk('user/loginByToken', async () => {
   const { request } = useHttp()
-  const header = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-  }
-
-  return await request('https://blog.kata.academy/api/user', 'GET', null, header)
+  return await request('https://blog.kata.academy/api/user')
 })
 
 const setUserToState = (state, data) => {

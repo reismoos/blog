@@ -4,22 +4,37 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import { useDispatch, useSelector } from 'react-redux'
 import { Popconfirm } from 'antd'
 
+import { likePost, unLikePost } from '../posts-list/posts-slice'
+
 import classes from './post.module.scss'
 import { deletePost, setStartEditing } from './post-slice'
 
 const PostHeader = ({ data, fullPost }) => {
-  const { tagList, title, favoritesCount, author, updatedAt, slug, description } = data
+  const { tagList, title, favoritesCount, author, updatedAt, slug, description, favorited } = data
   const date = format(new Date(updatedAt), 'MMMM d, yyyy')
   const renderTags = tagList ? tagList.map((tag, i) => <Tag key={i} tag={tag} />) : null
   const titleH2 = <h2 className={classes['post-header__title']}>{title}</h2>
   const linkTitle = fullPost ? titleH2 : <Link to={`/articles/${slug}`}>{titleH2}</Link>
+  const like = favorited ? classes['post-header__liked'] : classes['post-header__unliked']
+  const dispatch = useDispatch()
+
+  const onLike = () => {
+    if (!favorited) {
+      dispatch(likePost(slug))
+    } else {
+      dispatch(unLikePost(slug))
+    }
+  }
+
   return (
     <>
       <div className={classes['post-header']}>
         <div className={classes['post-header__left-colomn']}>
           <div className={classes['post-header__title-and-likes']}>
             {linkTitle}
-            <span className={classes['post-header__likes']}> {favoritesCount}</span>
+            <span onClick={onLike} className={`${classes['post-header__likes']} ${like}`}>
+              {favoritesCount}
+            </span>
           </div>
 
           <div className={classes['post-header__tags']}>{renderTags}</div>
@@ -47,7 +62,6 @@ const PostBody = ({ data }) => {
 
 const EditDeleteBtns = ({ author, slug }) => {
   const loginedUsername = useSelector((state) => state.user.username)
-  const token = useSelector((state) => state.user.token)
   const history = useHistory()
   const dispatch = useDispatch()
 
@@ -57,7 +71,7 @@ const EditDeleteBtns = ({ author, slug }) => {
   }
 
   const onDelete = () => {
-    dispatch(deletePost([token, slug]))
+    dispatch(deletePost(slug))
     history.push('/')
   }
 

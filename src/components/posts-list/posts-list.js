@@ -14,7 +14,6 @@ const PostsList = () => {
   const currentPage = useSelector((state) => state.posts.currentPage)
   const loading = useSelector((state) => state.posts.loading)
   const error = useSelector((state) => state.posts.error)
-  console.log(loading, error)
 
   useEffect(() => {
     dispatch(fetchPosts(currentPage))

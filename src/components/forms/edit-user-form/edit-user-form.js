@@ -7,7 +7,7 @@ import classes from '../form.module.scss'
 import { editUser } from '../login-form/login-slice'
 
 const EditUserForm = () => {
-  const { isLogined, errorMessage, error, username, email, image, token } = useSelector((state) => state.user)
+  const { isLogined, errorMessage, error, username, email, image } = useSelector((state) => state.user)
 
   const makeBody = (data) => {
     const body = { user: {} }
@@ -37,7 +37,7 @@ const EditUserForm = () => {
   })
 
   const onSubmit = (data) => {
-    dispatch(editUser([makeBody(data), token]))
+    dispatch(editUser(makeBody(data)))
   }
 
   useMemo(() => {

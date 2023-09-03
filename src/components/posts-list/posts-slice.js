@@ -12,8 +12,17 @@ const initialState = {
 
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async (currentPage) => {
   const { request } = useHttp()
-  console.log('request')
   return await request(`https://blog.kata.academy/api/articles?offset=${currentPage * 5 - 5}&limit=5`)
+})
+
+export const likePost = createAsyncThunk('post/like', async (slug) => {
+  const { request } = useHttp()
+  return await request(`https://blog.kata.academy/api/articles/${slug}/favorite`, 'POST')
+})
+
+export const unLikePost = createAsyncThunk('post/unlike', async (slug) => {
+  const { request } = useHttp()
+  return await request(`https://blog.kata.academy/api/articles/${slug}/favorite`, 'DELETE')
 })
 
 const postsSlice = createSlice({
@@ -35,6 +44,24 @@ const postsSlice = createSlice({
     })
     builder.addCase(fetchPosts.rejected, (state) => {
       state.error = true
+    })
+    builder.addCase(likePost.fulfilled, (state, action) => {
+      state.posts = state.posts.map((post) => {
+        if (post.slug === action.payload.article.slug) {
+          post.favorited = action.payload.article.favorited
+          post.favoritesCount = action.payload.article.favoritesCount
+        }
+        return post
+      })
+    })
+    builder.addCase(unLikePost.fulfilled, (state, action) => {
+      state.posts = state.posts.map((post) => {
+        if (post.slug === action.payload.article.slug) {
+          post.favorited = action.payload.article.favorited
+          post.favoritesCount = action.payload.article.favoritesCount
+        }
+        return post
+      })
     })
   },
 })

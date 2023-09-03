@@ -16,30 +16,18 @@ export const fetchPost = createAsyncThunk('post/fetchPost', async (slug) => {
 })
 
 export const createPost = createAsyncThunk('post/createPost', async (data) => {
-  const header = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${data[1]}`,
-  }
   const { request } = useHttp()
-  return await request('https://blog.kata.academy/api/articles', 'POST', JSON.stringify(data[0]), header)
+  return await request('https://blog.kata.academy/api/articles', 'POST', JSON.stringify(data))
 })
 
 export const editPost = createAsyncThunk('post/editPost', async (data) => {
-  const header = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${data[1]}`,
-  }
   const { request } = useHttp()
-  return await request(`https://blog.kata.academy/api/articles/${data[2]}`, 'PUT', JSON.stringify(data[0]), header)
+  return await request(`https://blog.kata.academy/api/articles/${data[1]}`, 'PUT', JSON.stringify(data[0]))
 })
 
-export const deletePost = createAsyncThunk('post/deletePost', async (data) => {
-  const header = {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${data[0]}`,
-  }
+export const deletePost = createAsyncThunk('post/deletePost', async (slug) => {
   const { request } = useHttp()
-  return await request(`https://blog.kata.academy/api/articles/${data[1]}`, 'DELETE', null, header)
+  return await request(`https://blog.kata.academy/api/articles/${slug}`, 'DELETE')
 })
 
 const postsSlice = createSlice({
