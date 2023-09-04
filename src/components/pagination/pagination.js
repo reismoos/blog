@@ -9,7 +9,7 @@ const MyPagination = () => {
   const { postsCount, currentPage } = useSelector((state) => state.posts)
   useEffect(() => {
     const page = sessionStorage.getItem('page')
-    dispatch(changePage(+page))
+    page ? dispatch(changePage(+page)) : null
   }, [])
   const onChangePage = (page) => {
     dispatch(changePage(page))
