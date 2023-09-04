@@ -15,7 +15,6 @@ const MyPagination = () => {
     dispatch(changePage(page))
     sessionStorage.setItem('page', page)
   }
-  console.log(currentPage)
   return (
     <Pagination
       current={currentPage}
